@@ -81,6 +81,8 @@ const images = [
     },
 ];
 
+let currentImageValue = 0, displayNumber = 0, score = 0;
+
 const setImageSrc = (randomImageName) => {
     const imageContainer = document.getElementById('imageContainer');
     if (imageContainer.hasChildNodes()) {
@@ -94,15 +96,17 @@ const setImageSrc = (randomImageName) => {
 
 const generateDisplayNumber = (numberOfItems, plusOrMinus) => {
     const split = Math.floor(Math.random() * 2);
+    
     if (split === 0) {
-        //display real number
-        document.getElementById('number').innerHTML = numberOfItems;
+      document.getElementById('number').innerHTML = numberOfItems;
+      displayNumber = numberOfItems;
     } else {
-        //display one higher or lower number
-        document.getElementById('number').innerHTML = numberOfItems + plusOrMinus;
+      document.getElementById('number').innerHTML = `${numberOfItems + plusOrMinus}`;
+      displayNumber = numberOfItems + plusOrMinus;
     }
-
-};
+    
+    currentImageValue = numberOfItems;
+  }
 
 const generatePlusOrMinus = () => {
     const number0to1 = Math.floor(Math.random() * 2);
@@ -131,6 +135,16 @@ const generate = () => {
     generateDisplayNumber(numberOfItems, plusOrMinus);
     
     images.splice(randomNumber, 1);
+};
+
+const match = () => {
+    currentImageValue === displayNumber ? score++ : score--;
+    document.getElementById('currentScore').innerHTML = score;
+};
+
+const noMatch = () => {
+    currentImageValue !== displayNumber ? score++ : score--;
+    document.getElementById('currentScore').innerHTML = score;
 };
 
 let timerRef;

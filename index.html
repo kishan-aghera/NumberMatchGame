@@ -10,51 +10,51 @@
 <body>
     <main id="game-area">
         <div class="stats">
-            <h3> 
-                Score 
-                <span id="currentScore">2</span> 
-                / 
-                <span id="totalAvailable">20</span> 
+          <div id="statsContent">
+            <h3>
+              Score: <span id="currentScore">7</span> /
+              <span id="totalAvailable">20</span>
             </h3>
-            
+  
             <p class="items">
-                <span id="number">6</span> <span id="item-name">ducks</span>
+              <span id="number"></span>6<span id="item-name"> ducks</span>
             </p>
-
+            
             <div class="match-buttons">
-                <button>&#10003;</button>
-                <button>&#10007;</button>
+              <button>&#10003;</button>
+              <button>&#10007;</button>
             </div>
+          </div>
         </div>
         
         <div class="imageArea">
-            <h3 id="message"></h3>
+          <h3 id="message"></h3>
+          
+          <div id="startScreen">
+            <h1>Welcome to the <em>Number Match</em> game...</h1>
             
-            <div id="startScreen">
-                <h1>Welcome to the <em>Number Match</em> game...</h1>
-                
-                <em class="space-y">the rules are simple.</em>
-                
-                <p class="space-y">
-                    &#9654; Hit thumbs up if the number of items matches the displayed number
-                </p>
-                
-                <p class="space-y">
-                    &#9654; Thumbs down if no match!
-                </p>
-                
-                <p class="space-y">
-                    You have <span id="timeSetting">3</span> seconds to decide.
-                </p>
-                
-                <button id="play-button">Play!</button>
-            </div>
-
-            <div id="imageContainer">
-                <!-- <img src="images/macaroons.jpg" alt=""> -->
-            </div>
+            <em class="space-y">The rules are simple. </em>
+            
+            <p class="space-y">
+              &#9654; Hit thumbs up if the number of items on the image matches
+              the displayed number.
+            </p>
+            
+            <p class="space-y">&#9654; Thumbs down if no match!</p>
+            
+            <p class="space-y">
+              You have <span id="timeSetting"></span> seconds to decide.
+            </p>
+          </div>
+          
+          <button id="play-button" onclick="play()">
+            Play!
+          </button>
+          
+          <div id="imageContainer"></div>
         </div>
-    </main>
-    <script src="script.js"></script>
+      </main>
+      
+      <script src="script.js"></script>
 </body>
 </html>

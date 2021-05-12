@@ -102,11 +102,16 @@ const generateDisplayNumber = (numberOfItems, plusOrMinus) => {
         document.getElementById('number').innerHTML = numberOfItems + plusOrMinus;
     }
 
-}
+};
 
 const generatePlusOrMinus = () => {
     const number0to1 = Math.floor(Math.random() * 2);
     return number0to1 === 0 ? -1 : +1;
+};
+
+const setImageName = (randomImageName) => {
+    const imageName = randomImageName.slice(0, randomImageName.length - 4);
+    document.getElementById('item-name').innerHTML = imageName + "?";
 };
 
 const generate = () => {
@@ -119,6 +124,7 @@ const generate = () => {
     const randomImageName = images[randomNumber].image_name;
 
     setImageSrc(randomImageName);
+    setImageName(randomImageName);
     
     const plusOrMinus = generatePlusOrMinus();
     const numberOfItems = images[randomNumber].number_of_items;

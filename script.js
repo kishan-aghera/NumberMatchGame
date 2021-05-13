@@ -103,6 +103,7 @@ const setImageSrc = (randomImageName) => {
     
     const image = document.createElement('img');
     image.src = `images/${randomImageName}`;
+	image.classList.add('fade');
     imageContainer.appendChild(image);
 };
 
